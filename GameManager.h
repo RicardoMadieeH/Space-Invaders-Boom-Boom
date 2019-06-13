@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif //UNTITLED2_GAMEMANAGER_H
+#endif

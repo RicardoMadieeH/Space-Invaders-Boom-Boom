@@ -17,4 +17,4 @@ public:
 };
 
 
-#endif //UNTITLED2_SCORECONTROLLER_H
+#endif

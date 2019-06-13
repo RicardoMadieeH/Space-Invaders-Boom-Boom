@@ -1,5 +1,5 @@
-#ifndef MINESWEEPERCONTROLLER_H
-#define MINESWEEPERCONTROLLER_H
+#ifndef INVADERSCONTROLLER_H
+#define INVADERSCONTROLLER_H
 
 #include <SFML/Graphics.hpp>
 #include "InvadersView.h"
@@ -8,9 +8,11 @@ class InvadersController {
 	bool finished = false;
 
 	InvadersView & view;
+	Tank &tank;
 	// ... & model;
+	sf::RenderWindow &win;
 public:
-	explicit InvadersController(InvadersView & v);
+	explicit InvadersController(InvadersView & v, sf::RenderWindow &w, Tank &t);
 public:
 	void handleEvent(sf::Event &event);
 
@@ -21,4 +23,4 @@ public:
 
 
 
-#endif // MINESWEEPERCONTROLLER_H
+#endif

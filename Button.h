@@ -28,4 +28,4 @@ public:
 	void setTextSize(int size);
 };
 
-#endif // BUTTON_H
+#endif

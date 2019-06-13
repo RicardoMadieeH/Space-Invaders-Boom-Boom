@@ -12,4 +12,4 @@ public:
 };
 
 
-#endif //UNTITLED2_SCOREVIEW_H
+#endif

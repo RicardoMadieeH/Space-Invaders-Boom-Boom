@@ -17,15 +17,18 @@
 
 int main() {
 
-	sf::RenderWindow win(sf::VideoMode(1280, 720), "Ultimate Snook v9001", sf::Style::Titlebar | sf::Style::Close);
+	sf::RenderWindow win(sf::VideoMode(720, 900), "Ultimate Snook v9001", sf::Style::Titlebar | sf::Style::Close);
 
-	win.setFramerateLimit(60);
+	win.setFramerateLimit(240);
+
+	Tank tank;
+
 
 	IntroView iv;
-	IntroController ic(iv);
+	IntroController ic(iv, win);
 
-	InvadersView invv;
-	InvadersController invc(invv);
+	InvadersView invv(tank);
+	InvadersController invc(invv, win, tank);
 
 	ScoreView sv;
 	ScoreController sc(sv);
@@ -46,6 +49,9 @@ int main() {
 			gm.handleEvent(event);
 
 		}
+
+		tank.updateTank();
+		
 		
 		// Clear screen
 		win.clear();
