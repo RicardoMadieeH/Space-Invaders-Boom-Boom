@@ -4,6 +4,7 @@
 #include "Alien.h"
 #include "Barrier.h"
 #include "Tank.h"
+#include "Fleet.h"
 
 #include "GameManager.h"
 #include "IntroView.h"
@@ -17,17 +18,18 @@
 
 int main() {
 
-	sf::RenderWindow win(sf::VideoMode(720, 900), "Ultimate Snook v9001", sf::Style::Titlebar | sf::Style::Close);
+	sf::RenderWindow win(sf::VideoMode(720, 900), "Space Invaders: Electric Boogaloo 2", sf::Style::Titlebar | sf::Style::Close);
 
 	win.setFramerateLimit(240);
 
 	Tank tank;
+	Fleet fleet;
 
 
 	IntroView iv;
 	IntroController ic(iv, win);
 
-	InvadersView invv(tank);
+	InvadersView invv(tank, fleet);
 	InvadersController invc(invv, win, tank);
 
 	ScoreView sv;
@@ -51,6 +53,7 @@ int main() {
 		}
 
 		tank.updateTank();
+		fleet.updateFleet();
 		
 		
 		// Clear screen

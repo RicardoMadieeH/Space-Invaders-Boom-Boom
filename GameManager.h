@@ -21,6 +21,7 @@ public:
 	void draw(sf::RenderWindow &win);
 
 	void handleEvent(sf::Event &event);
+
 };
 
 

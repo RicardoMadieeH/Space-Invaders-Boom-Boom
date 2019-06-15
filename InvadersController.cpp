@@ -10,7 +10,6 @@ void InvadersController::handleEvent(sf::Event &event) {
 		}
 
 		if (event.key.code == sf::Keyboard::Space) {
-			tank.shooting = true;
 			tank.shoot();
 		}
 		

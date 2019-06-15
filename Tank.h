@@ -15,7 +15,7 @@ class Tank{
 	sf::Texture tankTex;
 	Direction dir = STOP;
 	float posX;
-	bool shooting = false;
+	
 
 	sf::Clock clk;
 	sf::Time time;

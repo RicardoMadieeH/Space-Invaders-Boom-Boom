@@ -7,6 +7,7 @@ Tank::Tank()
 	
 	if (!tankTex.loadFromFile("Tank.png")) {
 		std::cout << "Error loading texture of tank" << std::endl;
+		abort();
 	}
 
 	tank.setTexture(tankTex);
@@ -22,6 +23,7 @@ Tank::Tank()
 void Tank::setTankTexture() {
 	if (!tankTex.loadFromFile("Tank.png")) {
 		std::cout << "Error loading texture of tank" << std::endl;
+		abort();
 	}
 
 	tank.setTexture(tankTex);

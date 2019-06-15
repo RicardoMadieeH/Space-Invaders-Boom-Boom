@@ -20,6 +20,7 @@ public:
 	void drawTo(sf::RenderWindow &win);
 
 	friend class Tank;
+	friend class Alien;
 };
 
 #endif

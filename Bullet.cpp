@@ -5,6 +5,7 @@
 Bullet::Bullet(float xPos) {
 	if (!missileTex.loadFromFile("Missile.png")) {
 		std::cout << "Error loading texture of missile" << std::endl;
+		abort();
 	}
 
 	missile.setTexture(missileTex);
