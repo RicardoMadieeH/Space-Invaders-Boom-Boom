@@ -41,7 +41,7 @@ void Fleet::dirRight() {
 
 void Fleet::fallDown() {
 	for (auto i : fleet) {
-		i->alien.move(sf::Vector2f(0, 3));
+		i->alien.move(sf::Vector2f(0, 6));
 	}
 }
 
@@ -58,19 +58,19 @@ void Fleet::move() {
 	}
 	else if (dir == RT) {
 		for (auto i : fleet) {
-			i->alien.move(sf::Vector2f(1, 0));
 			if (i->alien.getPosition().x > 675) {
 				fallDown();
 				dirLeft();
 				break;
 			}
+			i->alien.move(sf::Vector2f(1, 0));
 		}
 	}
 }
 
 void Fleet::updateFleet() {
 	ftime = fclk.getElapsedTime();
-	if (ftime.asMilliseconds() >= 100 / 15) {
+	if (ftime.asMilliseconds() >= 250 / 15) {
 		if (stat == PLAY) {
 			move();
 			fclk.restart();
