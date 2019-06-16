@@ -77,11 +77,11 @@ void Tank::drawTo(sf::RenderWindow &win) {
 void Tank::updateTank() {
 	time = clk.getElapsedTime();
 	if (time.asMilliseconds() >= 100 / 15) {
-		if (dir != STOP) {
+		//if (dir != STOP) {
 			move();
 			updateMissile();
 			clk.restart();
-		}
+		//}
 	}
 }
 
