@@ -22,6 +22,7 @@ void InvadersView::moveTank() {
 
 void InvadersView::draw(sf::RenderWindow &win) {
 	fleet.startFleet();
+	shotDown();
 	tank.drawTo(win);
 	for (auto i : tank.boom) {
 		i->drawTo(win);
@@ -30,6 +31,24 @@ void InvadersView::draw(sf::RenderWindow &win) {
 		i->drawTo(win);
 	}
 	
+}
+
+void InvadersView::shotDown() {
+	int k = 0;
+	int h;
+	for (auto i : fleet.fleet) {
+		h = 0;
+		for (auto j : tank.boom) {
+			if (i->alien.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
+				fleet.fleet.erase(fleet.fleet.begin() + k);
+				delete i;
+				tank.boom.erase(tank.boom.begin() + h);
+				delete j;
+			}
+			h++;
+		}
+		k++;
+	}
 }
 
 

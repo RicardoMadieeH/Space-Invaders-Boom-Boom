@@ -22,15 +22,17 @@ class Fleet
 	sf::Clock fclk;
 	sf::Time ftime;
 
+	sf::Texture alienTex;
+
 public:
 	Fleet();
 	void dirLeft();
 	void dirRight();
-	void fallDown();void startFleet();
+	void fallDown();
+	void startFleet();
 	void move();
 
 	void updateFleet();
-	void shoot();
 
 	void drawTo(sf::RenderWindow &win);
 

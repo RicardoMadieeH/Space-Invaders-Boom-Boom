@@ -19,6 +19,8 @@ public:
 	void turnTankRight();
 
 	void moveTank();
+
+	void shotDown();
 };
 
 

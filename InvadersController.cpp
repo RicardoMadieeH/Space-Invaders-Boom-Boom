@@ -4,6 +4,7 @@ InvadersController::InvadersController(InvadersView &v, sf::RenderWindow &w, Tan
 {}
 
 void InvadersController::handleEvent(sf::Event &event) {
+	
 	if (event.type == sf::Event::KeyPressed) {
 		if (event.key.code == sf::Keyboard::Escape) {
 			finished = true;
@@ -19,11 +20,23 @@ void InvadersController::handleEvent(sf::Event &event) {
 		else if (event.key.code == sf::Keyboard::Right && tank.getPosX() < 682) {
 			tank.turnRight();
 		}
-		else {
-			tank.stop();
-		}
 	}
 	else {
 		tank.stop();
 	}
+	
+	/*
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+		tank.turnLeft();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+		tank.turnRight();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		tank.shoot();
+	}
+	*/
+	
 }

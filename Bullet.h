@@ -21,6 +21,7 @@ public:
 
 	friend class Tank;
 	friend class Alien;
+	friend class InvadersView;
 };
 
 #endif

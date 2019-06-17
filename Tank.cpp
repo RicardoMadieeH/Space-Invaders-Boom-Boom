@@ -79,9 +79,14 @@ void Tank::updateTank() {
 	if (time.asMilliseconds() >= 100 / 15) {
 		//if (dir != STOP) {
 			move();
-			updateMissile();
+			//updateMissile();
 			clk.restart();
 		//}
+	}
+	mtime = mclk.getElapsedTime();
+	if (mtime.asMilliseconds() >= 50 / 15) {
+		updateMissile();
+		mclk.restart();
 	}
 }
 

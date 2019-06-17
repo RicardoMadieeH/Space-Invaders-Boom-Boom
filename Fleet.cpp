@@ -6,9 +6,14 @@ Fleet::Fleet(){
 	yFleet = 0;
 	xFleet = 10;
 
+	if (!alienTex.loadFromFile("Alien.png")) {
+		std::cout << "Error loading texture of alien" << std::endl;
+		abort();
+	}
+
 	int j = 0;
 	for (int k = 0; k <= 64; k++) {
-		fleet.push_front(new Alien(xFleet, yFleet));
+		fleet.push_front(new Alien(xFleet, yFleet, alienTex));
 		xFleet = xFleet + 50;
 		j++;
 		if (j % 13 == 0) {
@@ -77,6 +82,8 @@ void Fleet::updateFleet() {
 		}
 	}
 }
+
+
 
 
 

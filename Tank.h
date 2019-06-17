@@ -17,8 +17,8 @@ class Tank{
 	float posX;
 	
 
-	sf::Clock clk;
-	sf::Time time;
+	sf::Clock clk, mclk;
+	sf::Time time, mtime;
 
 	std::deque<Bullet*> boom;
 
@@ -46,6 +46,7 @@ public:
 	friend class InvadersController;
 	friend class Bullet;
 	friend class InvadersView;
+	friend class Fleet;
 };
 
 #endif

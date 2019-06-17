@@ -2,11 +2,11 @@
 
 
 
-Alien::Alien(float x, float y){
-	if (!alienTex.loadFromFile("Alien.png")) {
-		std::cout << "Error loading texture of alien" << std::endl;
-		abort();
-	}
+Alien::Alien(float x, float y, sf::Texture &alienTex){
+	//if (!alienTex.loadFromFile("Alien.png")) {
+	//	std::cout << "Error loading texture of alien" << std::endl;
+	//	abort();
+	//}
 	alien.setTexture(alienTex);
 	alien.setScale(sf::Vector2f(0.025, 0.025));
 

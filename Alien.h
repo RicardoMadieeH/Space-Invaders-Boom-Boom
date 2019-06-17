@@ -22,19 +22,19 @@ class Alien
 	std::deque<Bullet*> puf;
 
 public:
-	Alien(float x, float y);
+	Alien(float x, float y, sf::Texture &alienTex);
 
-	void shoot();
 	void move();
-	void updateAlien();
 	
 	float getxPos();
 	float getyPos();
 	Dir getDirection();
 
+
 	void drawTo(sf::RenderWindow &win);
 
 	friend class Fleet;
+	friend class InvadersView;
 };
 
 #endif
