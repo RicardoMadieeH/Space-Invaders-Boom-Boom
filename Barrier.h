@@ -9,7 +9,7 @@ class Barrier
 	float xPos;
 	float yPos;
 	sf::RectangleShape bBar;
-	sf::RectangleShape mbar;
+	sf::RectangleShape mBar;
 	sf::RectangleShape uBar;
 public:
 	Barrier();
@@ -18,6 +18,7 @@ public:
 	void getxPos();
 	void getyPos();
 
+	void drawTo(sf::RenderWindow &win);
 };
 
 #endif

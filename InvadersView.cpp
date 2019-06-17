@@ -1,7 +1,7 @@
 #include "InvadersView.h"
 
 
-InvadersView::InvadersView(Tank &t, Fleet &f) :tank(t), fleet(f){
+InvadersView::InvadersView(Tank &t, Fleet &f, Defense &d) :tank(t), fleet(f), defense(d){
 	//this->tank = Tank();
 	//tank.setTankTexture();
 	//tank.setTankStart();
@@ -47,6 +47,10 @@ void InvadersView::draw(sf::RenderWindow &win) {
 	for (auto i : fleet.fleet) {
 		i->drawTo(win);
 	}
+	for (auto i : defense.def) {
+		i->drawTo(win);
+	}
+
 	updateState();
 	if (finvic == true) {
 		win.draw(vic);

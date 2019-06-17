@@ -24,12 +24,13 @@ int main() {
 
 	Tank tank;
 	Fleet fleet;
+	Defense defense;
 
 
 	IntroView iv;
 	IntroController ic(iv, win);
 
-	InvadersView invv(tank, fleet);
+	InvadersView invv(tank, fleet, defense);
 	InvadersController invc(invv, win, tank);
 
 	ScoreView sv;

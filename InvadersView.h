@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Tank.h"
 #include "Fleet.h"
+#include "Defense.h"
 
 class InvadersView {
 	sf::Clock clk;
@@ -11,6 +12,7 @@ class InvadersView {
 	sf::Text txt;
 	Tank &tank;
 	Fleet &fleet;
+	Defense &defense;
 
 	sf::Text vic;
 	sf::Text defeat;
@@ -18,7 +20,7 @@ class InvadersView {
 	bool finvic = false;
 	bool findef = false;
 public:
-	InvadersView(Tank &t, Fleet &f);
+	InvadersView(Tank &t, Fleet &f, Defense &d);
 	void draw(sf::RenderWindow &win);
 
 	void turnTankLeft();

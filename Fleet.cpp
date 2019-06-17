@@ -51,6 +51,8 @@ void Fleet::fallDown() {
 }
 
 void Fleet::move() {
+	//float velocity;
+	//velocity = 65 / fleet.size();
 	if (dir == LT) {
 		for (auto i : fleet) {
 			i->alien.move(sf::Vector2f(-1, 0));
