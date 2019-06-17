@@ -11,7 +11,7 @@ Bullet::Bullet(float xPos) {
 	missile.setTexture(missileTex);
 	missile.setScale(sf::Vector2f(0.3, 0.3));
 
-	missile.setPosition(sf::Vector2f(xPos+7, 830));
+	missile.setPosition(sf::Vector2f(xPos+17, 810));
 }
 
 

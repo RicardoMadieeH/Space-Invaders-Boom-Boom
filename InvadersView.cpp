@@ -36,7 +36,6 @@ void InvadersView::moveTank() {
 	this->tank.move();
 }
 
-
 void InvadersView::draw(sf::RenderWindow &win) {
 	fleet.startFleet();
 	shotDown();
@@ -76,6 +75,17 @@ void InvadersView::shotDown() {
 			h++;
 		}
 		k++;
+	}
+	
+	for (auto i : defense.def) {
+		h = 0;
+		for (auto j : tank.boom) {
+			if (i->bBar.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
+				tank.boom.erase(tank.boom.begin() + h);
+				delete j;
+			}
+			h++;
+		}
 	}
 }
 

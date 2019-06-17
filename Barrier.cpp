@@ -32,3 +32,4 @@ void Barrier::drawTo(sf::RenderWindow &win) {
 	win.draw(mBar);
 	win.draw(uBar);
 }
+

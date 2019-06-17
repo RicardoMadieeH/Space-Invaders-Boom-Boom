@@ -19,6 +19,8 @@ public:
 	void getyPos();
 
 	void drawTo(sf::RenderWindow &win);
+
+	friend class InvadersView;
 };
 
 #endif

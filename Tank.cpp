@@ -97,7 +97,6 @@ void Tank::shoot() {
 void Tank::updateMissile() {
 	int j = 0;
 	for (auto i : boom) {
-		
 		i->move();
 		if (i->missile.getPosition().y <= 0) {
 			boom.erase(boom.begin()+j);
