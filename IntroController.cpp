@@ -4,11 +4,6 @@ IntroController::IntroController(IntroView &v, sf::RenderWindow &w) : view(v), w
 {}
 
 void IntroController::handleEvent(sf::Event &event) {
-	if (event.type == sf::Event::KeyPressed) {
-		if (event.key.code == sf::Keyboard::Space) {
-			finished = true;
-		}
-	}
 
 	if (event.type == sf::Event::EventType::MouseMoved) {
 		if (view.play.isMouseOver(win)) {

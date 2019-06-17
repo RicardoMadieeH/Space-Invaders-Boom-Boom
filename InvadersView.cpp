@@ -5,6 +5,23 @@ InvadersView::InvadersView(Tank &t, Fleet &f) :tank(t), fleet(f){
 	//this->tank = Tank();
 	//tank.setTankTexture();
 	//tank.setTankStart();
+	if (!font.loadFromFile("/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf")) {
+		if (!font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf")) {
+			abort();
+		}
+	}
+
+	vic.setCharacterSize(100);
+	vic.setFillColor(sf::Color::White);
+	vic.setFont(font);
+	vic.setPosition(sf::Vector2f(150, 400));
+	vic.setString("VICTORY");
+
+	defeat.setCharacterSize(100);
+	defeat.setFillColor(sf::Color::White);
+	defeat.setFont(font);
+	defeat.setPosition(sf::Vector2f(175, 400));
+	defeat.setString("DEFEAT");
 }
 
 void InvadersView::turnTankLeft() {
@@ -30,6 +47,13 @@ void InvadersView::draw(sf::RenderWindow &win) {
 	for (auto i : fleet.fleet) {
 		i->drawTo(win);
 	}
+	updateState();
+	if (finvic == true) {
+		win.draw(vic);
+	}
+	else if (findef == true) {
+		win.draw(defeat);
+	}
 	
 }
 
@@ -48,6 +72,19 @@ void InvadersView::shotDown() {
 			h++;
 		}
 		k++;
+	}
+}
+
+void InvadersView::updateState() {
+	if (fleet.fleet.size() == 0) {
+		finvic = true;
+	}
+	
+	for (auto i : fleet.fleet) {
+		if (i->alien.getPosition().y >= 850) {
+			findef = true;
+			break;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@ InvadersController::InvadersController(InvadersView &v, sf::RenderWindow &w, Tan
 void InvadersController::handleEvent(sf::Event &event) {
 	
 	if (event.type == sf::Event::KeyPressed) {
-		if (event.key.code == sf::Keyboard::Escape) {
+		if (view.finvic == true && event.key.code == sf::Keyboard::Return) {
 			finished = true;
 		}
 

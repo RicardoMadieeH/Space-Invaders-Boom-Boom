@@ -46,7 +46,7 @@ void Fleet::dirRight() {
 
 void Fleet::fallDown() {
 	for (auto i : fleet) {
-		i->alien.move(sf::Vector2f(0, 6));
+		i->alien.move(sf::Vector2f(0, 4));
 	}
 }
 

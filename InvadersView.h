@@ -11,6 +11,12 @@ class InvadersView {
 	sf::Text txt;
 	Tank &tank;
 	Fleet &fleet;
+
+	sf::Text vic;
+	sf::Text defeat;
+
+	bool finvic = false;
+	bool findef = false;
 public:
 	InvadersView(Tank &t, Fleet &f);
 	void draw(sf::RenderWindow &win);
@@ -21,6 +27,10 @@ public:
 	void moveTank();
 
 	void shotDown();
+
+	void updateState();
+
+	friend class InvadersController;
 };
 
 
