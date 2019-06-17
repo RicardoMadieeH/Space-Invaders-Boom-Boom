@@ -19,10 +19,12 @@ class Fleet
 	float xFleet;
 	State stat = STAY;
 
-	sf::Clock fclk;
-	sf::Time ftime;
+	sf::Clock fclk, mclk, sclk;
+	sf::Time ftime, mtime, stime;
 
 	sf::Texture alienTex;
+
+	std::deque<Bullet*>poof;
 
 public:
 	Fleet();
@@ -31,10 +33,13 @@ public:
 	void fallDown();
 	void startFleet();
 	void move();
+	void shoot();
+	void updateMissile();
 
 	void updateFleet();
 
 	void drawTo(sf::RenderWindow &win);
+	void drawMissileTo(sf::RenderWindow &win);
 
 	friend class InvadersView;
 };

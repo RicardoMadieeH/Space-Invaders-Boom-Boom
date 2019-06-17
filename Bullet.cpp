@@ -2,7 +2,7 @@
 
 
 
-Bullet::Bullet(float xPos) {
+Bullet::Bullet(float xPos, float yPos) {
 	if (!missileTex.loadFromFile("Missile.png")) {
 		std::cout << "Error loading texture of missile" << std::endl;
 		abort();
@@ -11,12 +11,16 @@ Bullet::Bullet(float xPos) {
 	missile.setTexture(missileTex);
 	missile.setScale(sf::Vector2f(0.3, 0.3));
 
-	missile.setPosition(sf::Vector2f(xPos+17, 810));
+	missile.setPosition(sf::Vector2f(xPos, yPos));
 }
 
 
 void Bullet::move() {
 	missile.move(sf::Vector2f(0, -1));
+}
+
+void Bullet::moveDown() {
+	missile.move(sf::Vector2f(0, 1));
 }
 
 

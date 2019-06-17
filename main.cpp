@@ -1,5 +1,6 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
+#include <ctime>
 
 #include "Alien.h"
 #include "Barrier.h"
@@ -17,6 +18,7 @@
 #include "Button.h"
 
 int main() {
+	srand(time(0));
 
 	sf::RenderWindow win(sf::VideoMode(720, 900), "Space Invaders: Electric Boogaloo 2", sf::Style::Titlebar | sf::Style::Close);
 

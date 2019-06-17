@@ -91,12 +91,13 @@ void Tank::updateTank() {
 }
 
 void Tank::shoot() {
-	boom.push_back(new Bullet(posX));
+	boom.push_back(new Bullet(posX+17, 810));
 }
 
 void Tank::updateMissile() {
 	int j = 0;
 	for (auto i : boom) {
+		i->missile.setColor(sf::Color::Cyan);
 		i->move();
 		if (i->missile.getPosition().y <= 0) {
 			boom.erase(boom.begin()+j);

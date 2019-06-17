@@ -49,6 +49,9 @@ void InvadersView::draw(sf::RenderWindow &win) {
 	for (auto i : defense.def) {
 		i->drawTo(win);
 	}
+	for (auto i : fleet.poof) {
+		i->drawTo(win);
+	}
 
 	updateState();
 	if (finvic == true) {
@@ -76,7 +79,8 @@ void InvadersView::shotDown() {
 		}
 		k++;
 	}
-	
+	k = 0;
+	h = 0;
 	for (auto i : defense.def) {
 		h = 0;
 		for (auto j : tank.boom) {
@@ -86,6 +90,52 @@ void InvadersView::shotDown() {
 			}
 			h++;
 		}
+	}
+	k = 0;
+	h = 0;
+	for (auto i : fleet.poof) {
+		if (i->missile.getGlobalBounds().intersects(tank.tank.getGlobalBounds())) {
+			findef = true;
+		}
+	}
+	k = 0;
+	h = 0;
+	for (auto i : fleet.poof) {
+		h = 0;
+		for (auto j : tank.boom) {
+			if (i->missile.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
+			tank.boom.erase(tank.boom.begin() + h);
+			delete j;
+			fleet.poof.erase(fleet.poof.begin() + k);
+			delete i;
+			}
+			h++;
+		}
+		k++;
+	}
+	k = 0;
+	h = 0;
+	for (auto i : fleet.poof) {
+		h = 0;
+		for (auto j : defense.def) {
+			if (i->missile.getGlobalBounds().intersects(j->uBar.getGlobalBounds())) {
+				fleet.poof.erase(fleet.poof.begin() + h-3);
+				delete i;
+				j->uBar.setSize(sf::Vector2f(0, 0));
+			}
+			else if (i->missile.getGlobalBounds().intersects(j->mBar.getGlobalBounds())) {
+				fleet.poof.erase(fleet.poof.begin() + h - 3);
+				delete i;
+				j->mBar.setSize(sf::Vector2f(0, 0));
+			}
+			else if (i->missile.getGlobalBounds().intersects(j->bBar.getGlobalBounds())) {
+				fleet.poof.erase(fleet.poof.begin() + h - 3);
+				delete i;
+				j->bBar.setSize(sf::Vector2f(0, 0));
+			}
+			h++;
+		}
+		k++;
 	}
 }
 

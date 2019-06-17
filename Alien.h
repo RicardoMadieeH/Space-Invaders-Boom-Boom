@@ -19,8 +19,6 @@ class Alien
 	sf::Clock clock;
 	sf::Time t;
 
-	std::deque<Bullet*> puf;
-
 public:
 	Alien(float x, float y, sf::Texture &alienTex);
 

@@ -36,6 +36,12 @@ void Fleet::drawTo(sf::RenderWindow &win) {
 	}
 }
 
+void Fleet::drawMissileTo(sf::RenderWindow &win) {
+	for (auto i : poof) {
+		i->drawTo(win);
+	}
+}
+
 void Fleet::dirLeft() {
 	dir = LT;
 }
@@ -83,23 +89,49 @@ void Fleet::updateFleet() {
 			fclk.restart();
 		}
 	}
+	
+	if (poof.size() > 0) {
+		mtime = mclk.getElapsedTime();
+		if (mtime.asMilliseconds() >= 50 / 15) {
+			updateMissile();
+			mclk.restart();
+		}
+	}
+	
+
+	float s = 5 + rand() % 6;
+	stime = sclk.getElapsedTime();
+	if (stime.asSeconds() >= s) {
+		shoot();
+		sclk.restart();
+	}
 }
 
+void Fleet::shoot() {
+	float k = 0;
+	int j = 0;
+	k = rand()%fleet.size();
+	for (auto i : fleet) {
+		if (k >= j) {
+			poof.push_back(new Bullet(i->alien.getPosition().x+17, i->alien.getPosition().y));
+		}
+		j++;
+		k = 0;
+	}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void Fleet::updateMissile() {
+	int j = 0;
+	for (auto i : poof) {
+		i->missile.setColor(sf::Color::Red);
+		i->moveDown();
+		if (i->missile.getPosition().y >= 850 && poof.size() > 0) {
+			std::cout << "pocisk dolecial do ziemi w x = "<<i->missile.getPosition().x << std::endl;
+			poof.erase(poof.begin() + j);
+			delete i;
+		}
+		else {
+			j++;
+		}
+	}
+}
