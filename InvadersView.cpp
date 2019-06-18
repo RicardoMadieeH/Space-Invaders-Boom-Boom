@@ -108,23 +108,24 @@ void InvadersView::shotDown() {
 	}
 	k = 0;
 	h = 0;
-	/*
+	
 	for (auto i : fleet.poof) {
 		h = 0;
 		for (auto j : tank.boom) {
 			if (fleet.poof.size() > 0 && tank.boom.size() > 0 && i->missile.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
 
-			delete j;
-			tank.boom.erase(tank.boom.begin() + h);
-			if (&i != nullptr) delete i;
-			fleet.poof.erase(fleet.poof.begin() + k);
-
+			//delete j;
+			//tank.boom.erase(tank.boom.begin() + h);
+			//if (&i != nullptr) delete i;
+			//fleet.poof.erase(fleet.poof.begin() + k);
+				i->missile.setScale(0, 0);
+				j->missile.setScale(0, 0);
 			}
 			h++;
 		}
 		k++;
 	}
-	*/
+	
 	k = 0;
 	h = 0;
 	for (auto i : fleet.poof) {
