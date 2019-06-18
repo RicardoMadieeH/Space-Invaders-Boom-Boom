@@ -71,10 +71,10 @@ void InvadersView::shotDown() {
 		h = 0;
 		for (auto j : tank.boom) {
 			if (i->alien.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
-				i->alien.setScale(0, 0);
-				//delete i;
-				//i = nullptr;
-				//fleet.fleet.erase(fleet.fleet.begin() + k);
+				//i->alien.setScale(0, 0);
+				delete i;
+				i = nullptr;
+				fleet.fleet.erase(fleet.fleet.begin() + k);
 
 				j->missile.setScale(0, 0);
 				//delete j;
