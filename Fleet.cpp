@@ -10,6 +10,10 @@ Fleet::Fleet(){
 		std::cout << "Error loading texture of alien" << std::endl;
 		abort();
 	}
+	if (!misTex.loadFromFile("Missile.png")) {
+		std::cout << "Error loading texture of missile" << std::endl;
+		abort();
+	}
 
 	int j = 0;
 	for (int k = 0; k <= 64; k++) {
@@ -98,25 +102,24 @@ void Fleet::updateFleet() {
 		}
 	}
 	
-
+	
 	float s = 5 + rand() % 6;
 	stime = sclk.getElapsedTime();
-	if (stime.asSeconds() >= s) {
+	if (stat == PLAY && stime.asSeconds() >= s) {
 		shoot();
 		sclk.restart();
 	}
 }
 
 void Fleet::shoot() {
-	float k = 0;
+	int k = 0;
 	int j = 0;
-	k = rand()%fleet.size();
+	k = 1+rand()%fleet.size();
 	for (auto i : fleet) {
-		if (k >= j) {
-			poof.push_back(new Bullet(i->alien.getPosition().x+17, i->alien.getPosition().y));
+		if (j%k == 0) {
+			poof.push_front(new Bullet(i->alien.getPosition().x+17, i->alien.getPosition().y, misTex));
 		}
 		j++;
-		k = 0;
 	}
 }
 
@@ -127,8 +130,9 @@ void Fleet::updateMissile() {
 		i->moveDown();
 		if (i->missile.getPosition().y >= 850 && poof.size() > 0) {
 			std::cout << "pocisk dolecial do ziemi w x = "<<i->missile.getPosition().x << std::endl;
-			poof.erase(poof.begin() + j);
+
 			delete i;
+			poof.erase(poof.begin() + j);
 		}
 		else {
 			j++;

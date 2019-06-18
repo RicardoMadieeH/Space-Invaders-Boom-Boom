@@ -9,6 +9,10 @@ Tank::Tank()
 		std::cout << "Error loading texture of tank" << std::endl;
 		abort();
 	}
+	if (!misTex.loadFromFile("Missile.png")) {
+		std::cout << "Error loading texture of missile" << std::endl;
+		abort();
+	}
 
 	tank.setTexture(tankTex);
 	tank.setScale(sf::Vector2f(0.25, 0.25));
@@ -91,7 +95,7 @@ void Tank::updateTank() {
 }
 
 void Tank::shoot() {
-	boom.push_back(new Bullet(posX+17, 810));
+	boom.push_back(new Bullet(posX+17, 810, misTex));
 }
 
 void Tank::updateMissile() {
@@ -100,8 +104,9 @@ void Tank::updateMissile() {
 		i->missile.setColor(sf::Color::Cyan);
 		i->move();
 		if (i->missile.getPosition().y <= 0) {
-			boom.erase(boom.begin()+j);
+
 			delete i;
+			boom.erase(boom.begin()+j);
 		}
 		j++;
 	}

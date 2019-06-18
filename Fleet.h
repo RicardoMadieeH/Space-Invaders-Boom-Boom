@@ -23,6 +23,7 @@ class Fleet
 	sf::Time ftime, mtime, stime;
 
 	sf::Texture alienTex;
+	sf::Texture misTex;
 
 	std::deque<Bullet*>poof;
 

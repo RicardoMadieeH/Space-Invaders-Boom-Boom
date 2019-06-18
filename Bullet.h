@@ -13,7 +13,7 @@ class Bullet
 
 
 public:
-	Bullet(float xPos, float yPos);
+	Bullet(float xPos, float yPos, sf::Texture &tex);
 	
 	void move();
 	void moveDown();

@@ -13,6 +13,7 @@ enum Direction {STOP, LEFT, RIGHT};
 class Tank{
 	sf::Sprite tank;
 	sf::Texture tankTex;
+	sf::Texture misTex;
 	Direction dir = STOP;
 	float posX;
 	
