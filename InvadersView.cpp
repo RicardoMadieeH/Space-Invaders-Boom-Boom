@@ -71,14 +71,15 @@ void InvadersView::shotDown() {
 		h = 0;
 		for (auto j : tank.boom) {
 			if (i->alien.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
-
-				delete i;
+				i->alien.setScale(0, 0);
+				//delete i;
 				//i = nullptr;
-				fleet.fleet.erase(fleet.fleet.begin() + k);
+				//fleet.fleet.erase(fleet.fleet.begin() + k);
 
-				delete j;
+				j->missile.setScale(0, 0);
+				//delete j;
 				//j = nullptr;
-				tank.boom.erase(tank.boom.begin() + h);
+				//tank.boom.erase(tank.boom.begin() + h);
 			}
 			h++;
 		}
@@ -129,26 +130,29 @@ void InvadersView::shotDown() {
 	for (auto i : fleet.poof) {
 		h = 0;
 		for (auto j : defense.def) {
-			if (h < fleet.poof.size() && i != nullptr && j != nullptr && i->missile.getGlobalBounds().intersects(j->uBar.getGlobalBounds())) {
-				i->missile.setScale(0, 0);
+			if (/*h < fleet.poof.size() &&*/ i != nullptr && j != nullptr && i->missile.getGlobalBounds().intersects(j->uBar.getGlobalBounds())) {
+				//i->missile.setScale(0, 0);
 				//delete i;
 				//i = nullptr;
 				//fleet.poof.erase(fleet.poof.begin() + h);
 				j->uBar.setSize(sf::Vector2f(0, 0));
-			}
-			else if (h < fleet.poof.size() && i->missile.getGlobalBounds().intersects(j->mBar.getGlobalBounds())) {
 				i->missile.setScale(0, 0);
+			}
+			else if (/*h < fleet.poof.size() &&*/ i->missile.getGlobalBounds().intersects(j->mBar.getGlobalBounds())) {
+				//i->missile.setScale(0, 0);
 				//delete i;
 				//i = nullptr;
 				//fleet.poof.erase(fleet.poof.begin() + h);
 				j->mBar.setSize(sf::Vector2f(0, 0));
-			}
-			else if (h < fleet.poof.size() &&  i->missile.getGlobalBounds().intersects(j->bBar.getGlobalBounds())) {
 				i->missile.setScale(0, 0);
+			}
+			else if (/*h < fleet.poof.size() &&*/ i->missile.getGlobalBounds().intersects(j->bBar.getGlobalBounds())) {
+				//i->missile.setScale(0, 0);
 				//delete i;
 				//i = nullptr;
 				//fleet.poof.erase(fleet.poof.begin() + h);
 				j->bBar.setSize(sf::Vector2f(0, 0));
+				i->missile.setScale(0, 0);
 			}
 			h++;
 		}
