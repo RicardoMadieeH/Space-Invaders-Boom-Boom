@@ -54,19 +54,23 @@ int main() {
 			gm.handleEvent(event);
 
 		}
+		try {
 
-		tank.updateTank();
-		fleet.updateFleet();
-		
-		
-		// Clear screen
-		win.clear();
 
-		// Draw current state
-		gm.draw(win);
+			tank.updateTank();
+			fleet.updateFleet();
 
-		// Update the window
-		win.display();
+
+			// Clear screen
+			win.clear();
+
+			// Draw current state
+			gm.draw(win);
+
+			// Update the window
+			win.display();
+		}
+		catch (...) { abort(); }
 	}
 
 

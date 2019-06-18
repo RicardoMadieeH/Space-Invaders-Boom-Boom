@@ -25,9 +25,9 @@ void Bullet::moveDown() {
 
 
 void Bullet::drawTo(sf::RenderWindow &win) {
-	if (missile.getPosition().y >= 10 && missile.getPosition().y <= 840) {
+	if (missile.getPosition().y >= 10 && missile.getPosition().y <= 824) {
 		if (&missile != nullptr) {
-			win.draw(missile);
+  			win.draw(missile);
 		}
 		
 		

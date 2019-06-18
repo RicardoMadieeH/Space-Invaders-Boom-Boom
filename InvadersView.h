@@ -32,6 +32,8 @@ public:
 
 	void updateState();
 
+	bool alienCollision(size_t k, size_t h);
+
 	friend class InvadersController;
 };
 

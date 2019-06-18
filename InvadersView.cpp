@@ -67,29 +67,24 @@ void InvadersView::draw(sf::RenderWindow &win) {
 void InvadersView::shotDown() {
 	int k = 0;
 	int h;
-	for (auto i : fleet.fleet) {
-		h = 0;
-		for (auto j : tank.boom) {
-			if (i->alien.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
-				//i->alien.setScale(0, 0);
-				delete i;
-				i = nullptr;
-				fleet.fleet.erase(fleet.fleet.begin() + k);
+	
+	for (size_t i = 0; i < tank.boom.size(); i++) {
+		for (size_t j = 0; j < fleet.fleet.size(); j++) {
+			if (alienCollision(i, j)) {
+				delete tank.boom[i];
+				tank.boom.erase(tank.boom.begin() + i);
 
-				j->missile.setScale(0, 0);
-				//delete j;
-				//j = nullptr;
-				//tank.boom.erase(tank.boom.begin() + h);
+				delete fleet.fleet[j];
+				fleet.fleet.erase(fleet.fleet.begin() + j);
 			}
-			h++;
 		}
-		k++;
 	}
+
 	k = 0;
 	h = 0;
-	for (auto i : defense.def) {
+	for (auto &i : defense.def) {
 		h = 0;
-		for (auto j : tank.boom) {
+		for (auto &j : tank.boom) {
 			if (i->bBar.getGlobalBounds().intersects(j->missile.getGlobalBounds())) {
 
 				delete j;
@@ -175,3 +170,26 @@ void InvadersView::updateState() {
 }
 
 
+bool InvadersView::alienCollision(size_t i, size_t j) {
+	/*
+	int h;
+	int k = 0;
+	for (auto &i : tank.boom) {
+		h = 0;
+		for (auto &j : fleet.fleet) {
+			if (i->missile.getGlobalBounds().intersects(j->alien.getGlobalBounds())) {
+
+				delete i;
+				tank.boom.erase(tank.boom.begin() + k);
+
+				delete j;
+				fleet.poof.erase(fleet.poof.begin() + h);
+			}
+			h++;
+		}
+		k++;
+	}
+	*/
+
+	return tank.boom.size() > 0 && i < tank.boom.size() ? tank.boom[i]->missile.getGlobalBounds().intersects(fleet.fleet[j]->alien.getGlobalBounds()) ? true : false : false;
+}
