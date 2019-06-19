@@ -191,5 +191,12 @@ bool InvadersView::alienCollision(size_t i, size_t j) {
 	}
 	*/
 
-	return tank.boom.size() > 0 && i < tank.boom.size() ? tank.boom[i]->missile.getGlobalBounds().intersects(fleet.fleet[j]->alien.getGlobalBounds()) ? true : false : false;
+	if (tank.boom.size() > 0 && i < tank.boom.size()) {
+		if (tank.boom[i]->missile.getGlobalBounds().intersects(fleet.fleet[j]->alien.getGlobalBounds())) {
+			return true;
+		}
+	}
+	return false;
+	
+	//return tank.boom.size() > 0 && i < tank.boom.size() ? tank.boom[i]->missile.getGlobalBounds().intersects(fleet.fleet[j]->alien.getGlobalBounds()) ? true : false : false;
 }

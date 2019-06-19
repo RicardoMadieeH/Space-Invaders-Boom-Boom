@@ -128,7 +128,7 @@ void Fleet::updateMissile() {
 	for (auto i : poof) {
 		i->missile.setColor(sf::Color::Red);
 		i->moveDown();
-		if (i->missile.getPosition().y >= 850 && poof.size() > 0) {
+		if (i->missile.getPosition().y >= 875 && poof.size() > 0) {
 			//std::cout << "pocisk dolecial do ziemi w x = "<<i->missile.getPosition().x << std::endl;
 
 			delete i;
